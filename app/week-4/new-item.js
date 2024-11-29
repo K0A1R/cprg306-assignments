@@ -16,15 +16,17 @@ export default function NewItem() {
     }
   };
   return (
-    <section className="flex p-3 mt-3 bg-white">
-      <p className="w-10">{quantity}</p>
+    <section className="flex p-3 mt-3 bg-[#FFFFF0] rounded-lg">
+      <p className="flex items-center justify-center bg-[#F5F5F5] rounded-lg text-center font-semibold size-8 mr-1">
+        {quantity}
+      </p>
       <button
         onClick={Decrement}
         className={`${
           quantity === 1
-            ? "bg-gray-400"
-            : "bg-blue-400 hover:bg-blue-500 focus:border-2 focus:border-blue-300"
-        } rounded-lg px-2 mr-1 text-white  h-8 w-8`}
+            ? "bg-gray-300 text-gray-700"
+            : "bg-red-500 hover:bg-red-600 text-white"
+        } rounded-lg font-semibold px-2 mr-1 size-8`}
       >
         -
       </button>
@@ -32,9 +34,9 @@ export default function NewItem() {
         onClick={Increment}
         className={`${
           quantity === 20
-            ? "bg-gray-400"
-            : "bg-blue-400 hover:bg-blue-500 focus:border-2 focus:border-blue-300"
-        } rounded-lg px-2 text-white h-8 w-8`}
+            ? "bg-gray-300 text-gray-700"
+            : "bg-green-500 hover:bg-green-600 text-white"
+        } rounded-lg font-semibold px-2 size-8`}
       >
         +
       </button>
