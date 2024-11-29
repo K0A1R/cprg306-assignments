@@ -20,13 +20,21 @@ export default function NewItem() {
       <p className="w-10">{quantity}</p>
       <button
         onClick={Decrement}
-        className="bg-blue-400 rounded-lg px-2 mr-1 text-white hover:bg-blue-500 focus:border-2 focus:border-blue-300 h-8 w-8"
+        className={`${
+          quantity === 1
+            ? "bg-gray-400"
+            : "bg-blue-400 hover:bg-blue-500 focus:border-2 focus:border-blue-300"
+        } rounded-lg px-2 mr-1 text-white  h-8 w-8`}
       >
         -
       </button>
       <button
         onClick={Increment}
-        className="bg-blue-400 rounded-lg px-2 text-white hover:bg-blue-500 focus:border-2 focus:border-blue-300 h-8 w-8"
+        className={`${
+          quantity === 20
+            ? "bg-gray-400"
+            : "bg-blue-400 hover:bg-blue-500 focus:border-2 focus:border-blue-300"
+        } rounded-lg px-2 text-white h-8 w-8`}
       >
         +
       </button>
