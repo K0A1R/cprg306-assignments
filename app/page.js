@@ -18,6 +18,12 @@ export default function Page() {
         >
           Week 3 Assignment
         </Link>
+        <Link
+          href="./week-4"
+          className="block text-white hover:text-green-400 hover:underline"
+        >
+          Week 4 Assignment
+        </Link>
       </nav>
     </main>
   );
