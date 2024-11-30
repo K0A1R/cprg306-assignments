@@ -22,28 +22,35 @@ export default function NewItem() {
     event.preventDefault();
     let item = { name, quantity, category };
     console.log(item);
-    alert(`Name: ${name}, Quantity: ${quantity}, Category: ${category}`);
-    name = "";
-    quantity = 1;
-    category = "produce";
+    alert(
+      `Added Item: ${name} | Quantity: ${quantity} | Category: ${category}`
+    );
+    setName("");
+    setQuantity(1);
+    setCategory("produce");
   };
+
   return (
-    <forum className="bg-[#ededac] rounded-lg p-10">
+    <form
+      className="flex flex-col items-center bg-[#ededac] rounded-lg p-7"
+      onSubmit={(event) => handleSubmit(event)}
+    >
       <section>
         <input
           type="text"
           placeholder="Item name"
-          className="rounded-md w-80 pl-1"
+          className="rounded-md pl-1"
           value={name}
           onChange={(event) => setName(event.target.value)}
           required
         />
       </section>
-      <section className="flex p-3 mt-3 bg-[#FFFFF0] rounded-lg justify-center">
+      <section className="flex p-3 m-3 bg-[#FFFFF0] rounded-lg justify-center">
         <p className="flex items-center justify-center bg-[#F5F5F5] rounded-lg text-center font-semibold size-8 mr-1">
           {quantity}
         </p>
         <button
+          type="button"
           onClick={Decrement}
           className={`${
             quantity === 1
@@ -54,12 +61,13 @@ export default function NewItem() {
           -
         </button>
         <button
+          type="button"
           onClick={Increment}
           className={`${
             quantity === 20
               ? "bg-gray-300 text-gray-700"
               : "bg-green-500 hover:bg-green-600 text-white"
-          } rounded-lg font-semibold px-2 mr-1 size-8`}
+          } rounded-lg font-semibold px-2 mr-3 size-8`}
         >
           +
         </button>
@@ -68,7 +76,9 @@ export default function NewItem() {
           onChange={(event) => setCategory(event.target.value)}
           className="rounded-lg p-1"
         >
-          <option value="">Category</option>
+          <option value="" disabled>
+            Category
+          </option>
           <option value="Produce">Produce</option>
           <option value="Dairy">Dairy</option>
           <option value="Meat">Meat</option>
@@ -81,6 +91,14 @@ export default function NewItem() {
           <option value="Other">Other</option>
         </select>
       </section>
-    </forum>
+      <section>
+        <button
+          type="submit"
+          className="bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg p-2"
+        >
+          Add
+        </button>
+      </section>
+    </form>
   );
 }
