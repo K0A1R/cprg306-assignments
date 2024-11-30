@@ -39,14 +39,14 @@ export default function NewItem() {
         <input
           type="text"
           placeholder="Item name"
-          className="rounded-md pl-1"
+          className="rounded-md pl-1 shadow-sm hover:shadow-lg focus:shadow-lg focus:outline-none"
           value={name}
           onChange={(event) => setName(event.target.value)}
           required
         />
       </section>
-      <section className="flex p-3 m-3 bg-[#FFFFF0] rounded-lg justify-center">
-        <p className="flex items-center justify-center bg-[#F5F5F5] rounded-lg text-center font-semibold size-8 mr-1">
+      <section className="flex p-3 m-3 bg-[#FFFFF0] rounded-lg justify-center shadow-sm">
+        <p className="flex items-center justify-center bg-[#F5F5F5] rounded-lg text-center font-semibold w-8 mr-1">
           {quantity}
         </p>
         <button
@@ -56,7 +56,8 @@ export default function NewItem() {
             quantity === 1
               ? "bg-gray-300 text-gray-700"
               : "bg-red-500 hover:bg-red-600 text-white"
-          } rounded-lg font-semibold px-2 mr-1 size-8`}
+          } rounded-lg font-semibold px-2 mr-1 w-8`}
+          disabled={quantity === 1}
         >
           -
         </button>
@@ -67,7 +68,8 @@ export default function NewItem() {
             quantity === 20
               ? "bg-gray-300 text-gray-700"
               : "bg-green-500 hover:bg-green-600 text-white"
-          } rounded-lg font-semibold px-2 mr-3 size-8`}
+          } rounded-lg font-semibold px-2 mr-3 w-8`}
+          disabled={quantity === 20}
         >
           +
         </button>
@@ -77,7 +79,7 @@ export default function NewItem() {
           className="rounded-lg p-1"
         >
           <option value="" disabled>
-            Category
+            Select Category
           </option>
           <option value="Produce">Produce</option>
           <option value="Dairy">Dairy</option>
@@ -94,7 +96,7 @@ export default function NewItem() {
       <section>
         <button
           type="submit"
-          className="bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg p-2"
+          className="bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg p-2 shadow-sm hover:shadow-lg focus:shadow-lg"
         >
           Add
         </button>
