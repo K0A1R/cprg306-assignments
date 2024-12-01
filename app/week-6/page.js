@@ -1,7 +1,7 @@
 export default function Page() {
   return (
     <main>
-      <h1>Week 6</h1>
+      <h1>Shopping List</h1>
     </main>
   );
 }
