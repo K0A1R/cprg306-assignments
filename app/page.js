@@ -36,6 +36,12 @@ export default function Page() {
         >
           Week 6 Assignment
         </Link>
+        <Link
+          href="./week-7"
+          className="block text-white hover:text-green-400 hover:underline"
+        >
+          Week 7 Assignment
+        </Link>
       </nav>
     </main>
   );
