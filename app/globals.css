@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensure padding and borders don't affect width/height calculations */
+}
+
+/* Ensure body takes the full height and width of the viewport */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #1e293b; /* Set a background color for the entire page */
+}
+
+/* Ensure content doesn't overflow */
+body {
+  display: flex;
+  flex-direction: column;
+}
