@@ -15,22 +15,23 @@ export default function ItemList() {
   }
   return (
     <section>
-      <section className="flex gap-5">
+      <section className="flex">
         <p className="text-white font-bold">Sort By:</p>
         <button
-          className="text-white bg-blue-500 rounded-lg h-8 px-2 hover:bg-blue-600"
+          className="text-white bg-red-500 rounded-lg ml-2 h-8 px-2 hover:bg-red-600"
           type="submit"
           onClick={() => setSortBy("name")}
         >
           Name
         </button>
         <button
-          className="text-white bg-blue-500 rounded-lg h-8 px-2 hover:bg-blue-600"
+          className="text-white bg-red-500 rounded-lg ml-2 h-8 px-2 hover:bg-red-600"
           type="submit"
           onClick={() => setSortBy("category")}
         >
           Category
         </button>
+        <button type="submit"></button>
       </section>
       <div>
         {items.map((item) => (
