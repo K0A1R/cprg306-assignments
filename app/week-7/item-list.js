@@ -1,7 +1,13 @@
-export default function ItemList() {
+import Item from "./item";
+
+export default function ItemList({ items }) {
   return (
-    <div>
-      <p>Place Holder</p>
-    </div>
+    <form>
+      <ul>
+        {items.map((item) => (
+          <Item key={item.id} {...item} />
+        ))}
+      </ul>
+    </form>
   );
 }

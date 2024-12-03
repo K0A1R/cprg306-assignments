@@ -1,7 +1,13 @@
-export default function NewItem() {
+import Item from "./item";
+
+export default function NewItem({ itemList }) {
   return (
     <form>
-      <p>Place Holder</p>
+      <ul>
+        {itemList.map((item) => (
+          <Item key={id} {...item} />
+        ))}
+      </ul>
     </form>
   );
 }
