@@ -1,18 +1,20 @@
 "use client";
 import { useState } from "react";
 
-export default function NewItem() {
+export default function NewItem({ onAddItem }) {
   const [quantity, setQuantity] = useState(1);
   const [name, setName] = useState("");
   const [category, setCategory] = useState("produce");
 
-  let Increment = () => {
+  let Increment = (event) => {
+    event.preventDefault();
     if (quantity < 20) {
       setQuantity(quantity + 1);
     }
   };
 
-  let Decrement = () => {
+  let Decrement = (event) => {
+    event.preventDefault();
     if (quantity > 1) {
       setQuantity(quantity - 1);
     }
@@ -20,6 +22,12 @@ export default function NewItem() {
 
   let handleSubmit = (event) => {
     event.preventDefault();
+    const newId = Math.random().toString(36).substr(2, 15);
+    const newItem = { id: newId, name, quantity, category };
+    onAddItem(newItem);
+    setName("");
+    setQuantity(1);
+    setCategory("produce");
   };
   return (
     <form
@@ -35,7 +43,7 @@ export default function NewItem() {
             placeholder="Item name"
             className="rounded-md pl-1 shadow-sm hover:shadow-lg focus:shadow-lg focus:outline-none"
             value={name}
-            onChange={handleSubmit}
+            onChange={(event) => setName(event.target.value)}
           ></input>
         </div>
         <div className="flex p-3 rounded-lg">
@@ -49,6 +57,7 @@ export default function NewItem() {
                 ? "bg-gray-300 text-gray-700"
                 : "bg-red-500 hover:bg-red-600 text-white"
             } rounded-lg font-semibold px-2 mr-1 size-8`}
+            disabled={quantity === 1}
           >
             -
           </button>
@@ -59,29 +68,36 @@ export default function NewItem() {
                 ? "bg-gray-300 text-gray-700"
                 : "bg-green-500 hover:bg-green-600 text-white"
             } rounded-lg font-semibold px-2 size-8`}
+            disabled={quantity === 20}
           >
             +
           </button>
-          <select value={category} className="rounded-lg p-1 ml-3">
+          <select
+            value={category}
+            className="rounded-lg p-1 ml-3"
+            onChange={(event) => {
+              setCategory(event.target.value);
+            }}
+          >
             <option value="" disabled>
               Select Category
             </option>
-            <option value="Produce">Produce</option>
-            <option value="Dairy">Dairy</option>
-            <option value="Meat">Meat</option>
-            <option value="Frozen Foods">Frozen Foods</option>
-            <option value="Canned Goods">Canned Goods</option>
-            <option value="Dry Goods">Dry Goods</option>
-            <option value="Beverages">Beverages</option>
-            <option value="Snack">Snack</option>
-            <option value="Household">Household</option>
-            <option value="Other">Other</option>
+            <option value="produce">Produce</option>
+            <option value="dairy">Dairy</option>
+            <option value="meat">Meat</option>
+            <option value="frozen foods">Frozen Foods</option>
+            <option value="canned goods">Canned Goods</option>
+            <option value="dry goods">Dry Goods</option>
+            <option value="beverages">Beverages</option>
+            <option value="snack">Snack</option>
+            <option value="household">Household</option>
+            <option value="other">Other</option>
           </select>
         </div>
         <div>
           <button
             type="submit"
-            className="bg-[#2a1abe] hover:bg-[#150d5f] text-white font-semibold rounded-lg p-1 shadow-sm hover:shadow-lg focus:shadow-lg"
+            className="bg-[#242bff] bg-[#161ba9] text-white font-semibold rounded-lg p-1 shadow-sm hover:shadow-lg focus:shadow-lg"
             onClick={handleSubmit}
           >
             Add

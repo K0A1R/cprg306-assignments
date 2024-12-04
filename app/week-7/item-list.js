@@ -4,12 +4,14 @@ import { useState } from "react";
 
 export default function ItemList({ items }) {
   const [sortBy, setSortBy] = useState("name");
+
   if (sortBy === "name") {
-    items.sort((a, b) => a.name.localeCompare(b.name));
+    items = [...items].sort((a, b) => a.name.localeCompare(b.name));
   }
   if (sortBy === "category") {
-    items.sort((a, b) => a.category.localeCompare(b.category));
+    items = [...items].sort((a, b) => a.category.localeCompare(b.category));
   }
+
   return (
     <section>
       <section className="flex justify-center bg-slate-900 p-2 m-4 max-w-sm rounded-lg">
