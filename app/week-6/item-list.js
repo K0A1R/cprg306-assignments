@@ -16,7 +16,7 @@ export default function ItemList() {
   return (
     <section>
       <section className="flex">
-        <p className="text-white font-bold">Sort By:</p>
+        <p className="text-white font-bold ml-4">Sort By:</p>
         <button
           className="text-white bg-red-500 rounded-lg ml-2 h-8 px-2 hover:bg-red-600"
           type="submit"
