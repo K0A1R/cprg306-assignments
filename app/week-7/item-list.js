@@ -17,14 +17,18 @@ export default function ItemList({ items }) {
       <section className="flex justify-center bg-slate-900 p-2 m-4 max-w-sm rounded-lg">
         <p className="text-white font-bold">Sort By:</p>
         <button
-          className="text-white bg-red-500 rounded-lg ml-20 h-8 px-2 hover:bg-red-600"
+          className={`${
+            sortBy === "name" ? "bg-red-800" : "bg-red-500"
+          } text-white rounded-lg ml-20 h-8 px-2`}
           type="button"
           onClick={() => setSortBy("name")}
         >
           Name
         </button>
         <button
-          className="text-white bg-red-500 rounded-lg ml-5 h-8 px-2 hover:bg-red-600"
+          className={`${
+            sortBy === "category" ? "bg-red-800" : "bg-red-500"
+          } text-white rounded-lg ml-5 h-8 px-2`}
           type="button"
           onClick={() => setSortBy("category")}
         >

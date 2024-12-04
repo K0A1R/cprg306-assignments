@@ -97,7 +97,7 @@ export default function NewItem({ onAddItem }) {
         <div>
           <button
             type="submit"
-            className="bg-[#242bff] hover:bg-[#161ba9] text-white font-semibold rounded-lg p-1 shadow-sm hover:shadow-lg focus:shadow-lg"
+            className="bg-blue-700 hover:bg-blue-950 text-white font-semibold rounded-lg p-1 shadow-sm hover:shadow-xl focus:shadow-lg"
             onClick={handleSubmit}
           >
             Add
