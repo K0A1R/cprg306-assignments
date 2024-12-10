@@ -3,12 +3,31 @@ import ItemList from "./item-list";
 import NewItem from "./new-item";
 import itemsData from "./items.json";
 import MealIdeas from "./meal-ideas";
+import Link from "next/link";
+
+import { useUserAuth } from "../_utils/auth-context";
 
 import { useState } from "react";
 
 export default function Page() {
   const [items, setItems] = useState(itemsData);
   const [selectedItemName, setSelectedItemName] = useState("");
+
+  const { user } = useUserAuth();
+
+  if (!user) {
+    return (
+      <main className="flex flex-col bg-slate-950 h-full text-white justify-center items-center">
+        <h1 className="text-6xl mb-10">Log-In to view your shopping list!</h1>
+        <Link
+          className="hover:text-green-400 hover:underline text-xl"
+          href="/week-9"
+        >
+          Log-In
+        </Link>
+      </main>
+    );
+  }
 
   let handleItemSelect = (name) => {
     const selectedValue = name.replace(
