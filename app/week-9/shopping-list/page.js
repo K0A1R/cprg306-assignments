@@ -17,7 +17,7 @@ export default function Page() {
 
   if (!user) {
     return (
-      <main className="flex flex-col bg-slate-950 h-full text-white justify-center items-center">
+      <main className="flex flex-col bg-slate-950 h-screen text-white justify-center items-center">
         <h1 className="text-6xl mb-10">Log-In to view your shopping list!</h1>
         <Link
           className="hover:text-green-400 hover:underline text-xl"
@@ -43,7 +43,7 @@ export default function Page() {
   };
 
   return (
-    <main className="bg-slate-950">
+    <main className="bg-slate-950 h-full">
       <h1 className="text-white text-3xl font-bold m-2 pl-3">Shopping List</h1>
 
       <NewItem onAddItem={handleAddItem} />
