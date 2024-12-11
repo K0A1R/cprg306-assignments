@@ -14,7 +14,7 @@ export default function Page() {
   };
 
   return (
-    <main className="flex flex-col bg-slate-950 h-full text-white justify-center items-center">
+    <main className="flex flex-col bg-slate-950 h-screen text-white justify-center items-center">
       <h1 className="text-6xl mb-10">Shopping List Log-In Page</h1>
       <div>
         {user ? (

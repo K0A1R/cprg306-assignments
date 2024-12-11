@@ -19,7 +19,7 @@ const addItem = async (userId, item) => {
   try {
     const itemsRef = collection(db, `users/${userId}/items`);
     const docRef = await addDoc(itemsRef, item);
-    return doc.id;
+    return docRef.id;
   } catch (error) {
     console.error(error);
   }
