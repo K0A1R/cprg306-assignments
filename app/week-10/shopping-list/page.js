@@ -28,7 +28,7 @@ export default function Page() {
         <h1 className="text-6xl mb-10">Log-In to view your shopping list!</h1>
         <Link
           className="hover:text-green-400 hover:underline text-xl"
-          href="/week-9"
+          href="/week-10"
         >
           Log-In
         </Link>
