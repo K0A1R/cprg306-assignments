@@ -24,3 +24,12 @@ export const addItem = async (userId, item) => {
     console.error(error);
   }
 };
+
+export const deleteItem = async (userId, itemId) => {
+  try {
+    const itemsRef = collection(db, `users/${userId}/items`);
+    await deleteDoc(itemsRef, itemId);
+  } catch (error) {
+    console.error(error);
+  }
+};
