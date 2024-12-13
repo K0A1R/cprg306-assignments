@@ -6,13 +6,13 @@ export default function NewItem() {
   const [quantity, setQuantity] = useState(1);
   const [category, setCategory] = useState("produce");
 
-  let Increment = () => {
+  let increment = () => {
     if (quantity < 20) {
       setQuantity(quantity + 1);
     }
   };
 
-  let Decrement = () => {
+  let decrement = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
     }
@@ -51,7 +51,7 @@ export default function NewItem() {
         </p>
         <button
           type="button"
-          onClick={Decrement}
+          onClick={decrement}
           className={`${
             quantity === 1
               ? "bg-gray-300 text-gray-700"
@@ -63,7 +63,7 @@ export default function NewItem() {
         </button>
         <button
           type="button"
-          onClick={Increment}
+          onClick={increment}
           className={`${
             quantity === 20
               ? "bg-gray-300 text-gray-700"
