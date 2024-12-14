@@ -4,13 +4,13 @@ import { useState } from "react";
 export default function NewItem() {
   const [quantity, setQuantity] = useState(1);
 
-  let increment = () => {
+  const increment = () => {
     if (quantity < 20) {
       setQuantity(quantity + 1);
     }
   };
 
-  let decrement = () => {
+  const decrement = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
     }

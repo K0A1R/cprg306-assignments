@@ -6,21 +6,21 @@ export default function NewItem({ onAddItem }) {
   const [name, setName] = useState("");
   const [category, setCategory] = useState("produce");
 
-  let increment = (event) => {
+  const increment = (event) => {
     event.preventDefault();
     if (quantity < 20) {
       setQuantity(quantity + 1);
     }
   };
 
-  let decrement = (event) => {
+  const decrement = (event) => {
     event.preventDefault();
     if (quantity > 1) {
       setQuantity(quantity - 1);
     }
   };
 
-  let handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     const newId = Math.random().toString(36).substr(2, 15);
     const newItem = { id: newId, name, quantity, category };

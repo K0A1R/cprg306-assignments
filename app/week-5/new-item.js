@@ -6,21 +6,21 @@ export default function NewItem() {
   const [quantity, setQuantity] = useState(1);
   const [category, setCategory] = useState("produce");
 
-  let increment = () => {
+  const increment = () => {
     if (quantity < 20) {
       setQuantity(quantity + 1);
     }
   };
 
-  let decrement = () => {
+  const decrement = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
     }
   };
 
-  let handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    let item = { name, quantity, category };
+    const item = { name, quantity, category };
     console.log(item);
     alert(
       `Added Item: ${name} | Quantity: ${quantity} | Category: ${category}`
