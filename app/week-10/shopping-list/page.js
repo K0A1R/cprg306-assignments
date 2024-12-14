@@ -60,13 +60,9 @@ export default function Page() {
     setItems((prevItems) => [...prevItems, newItem]);
   };
 
-  // Use effect NOT WORKING! Only Works if I call loadItems() directly.
-
-  //useEffect(() => {
-  //  loadItems();
-  //}, [user.id]);
-
-  loadItems();
+  useEffect(() => {
+    loadItems();
+  }, [user.id]);
 
   return (
     <main className="bg-slate-950">

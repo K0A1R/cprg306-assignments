@@ -6,14 +6,14 @@ export default function NewItem({ onAddItem }) {
   const [name, setName] = useState("");
   const [category, setCategory] = useState("produce");
 
-  let Increment = (event) => {
+  const Increment = (event) => {
     event.preventDefault();
     if (quantity < 20) {
       setQuantity(quantity + 1);
     }
   };
 
-  let Decrement = (event) => {
+  const Decrement = (event) => {
     event.preventDefault();
     if (quantity > 1) {
       setQuantity(quantity - 1);
