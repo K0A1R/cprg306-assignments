@@ -7,7 +7,7 @@ import MealIdeas from "./meal-ideas";
 import { useState } from "react";
 
 export default function Page() {
-  const [items, setItems] = useState(itemsData);
+  const [items, setItems] = useState([...itemsData]);
   const [selectedItemName, setSelectedItemName] = useState("");
 
   let handleItemSelect = (name) => {

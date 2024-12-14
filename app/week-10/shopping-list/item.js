@@ -1,6 +1,6 @@
 export default function Item({ onSelect, name, quantity, category }) {
   return (
-    <div>
+    <ul>
       <li
         onClick={() => onSelect(name)}
         className="bg-slate-900 p-2 m-4 max-w-sm rounded-lg hover:bg-orange-800 cursor-pointer"
@@ -10,6 +10,6 @@ export default function Item({ onSelect, name, quantity, category }) {
           Buy {quantity} in {category}
         </p>
       </li>
-    </div>
+    </ul>
   );
 }

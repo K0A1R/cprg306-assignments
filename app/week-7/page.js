@@ -6,7 +6,7 @@ import itemsData from "./items.json";
 import { useState } from "react";
 
 export default function Page() {
-  const [items, setItems] = useState(itemsData);
+  const [items, setItems] = useState([...itemsData]);
 
   let handleAddItem = (newItem) => {
     setItems([...items, newItem]);

@@ -10,7 +10,7 @@ import { useUserAuth } from "../_utils/auth-context";
 import { useState } from "react";
 
 export default function Page() {
-  const [items, setItems] = useState(itemsData);
+  const [items, setItems] = useState([...itemsData]);
   const [selectedItemName, setSelectedItemName] = useState("");
 
   const { user } = useUserAuth();
