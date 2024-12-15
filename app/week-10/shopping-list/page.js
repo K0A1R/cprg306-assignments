@@ -62,7 +62,7 @@ export default function Page() {
 
   useEffect(() => {
     loadItems();
-  }, [user.id]);
+  }, [user.uid]);
 
   return (
     <main className="bg-slate-950">
