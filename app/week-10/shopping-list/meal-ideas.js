@@ -23,7 +23,7 @@ export default function MealIdeas({ ingredient }) {
 
   useEffect(() => {
     loadMealIdeas();
-  }, [ingredient, loadMealIdeas]);
+  }, [ingredient]);
 
   return (
     <section className="ml-32 w-96">
