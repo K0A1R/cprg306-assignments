@@ -1,16 +1,12 @@
-import Title from "./title.js";
+import StudentInfo from "./student-info.js";
+import Link from "next/link";
 
 export default function Page() {
-  let a = 5;
-  let b = 10;
-
   return (
     <main>
-      <Title />
-      <p>This is my Week 2 Page.</p>
-      <p>
-        The sum of {a} and {b} is {a + b}.
-      </p>
+      <h1>Shopping List</h1>
+      <StudentInfo />
+      <Link href="/">Home</Link>
     </main>
   );
 }
