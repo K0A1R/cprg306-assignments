@@ -2,14 +2,16 @@ import Link from "next/link";
 
 export default function Page() {
   return (
-    <main>
-      <h1>CPRG 306: Web Development 2 - Assignments</h1>
+    <main className="flex flex-col items-center justify-center h-screen">
+      <h1 className="font-bold text-xl">
+        CPRG 306: Web Development 2 - Assignments
+      </h1>
       <nav className="flex flex-col">
-        <Link className="hover:underline" href="/week-2">
-          Week 2
+        <Link className="hover:underline hover:text-green-600" href="/week-2">
+          Week 2 Assignment
         </Link>
-        <Link className="hover:underline" href="/week-3">
-          Week 3
+        <Link className="hover:underline hover:text-green-600" href="/week-3">
+          Week 3 Assignment
         </Link>
       </nav>
     </main>
