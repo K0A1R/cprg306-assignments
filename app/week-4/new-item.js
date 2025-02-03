@@ -26,6 +26,7 @@ export default function NewItem() {
             : "bg-red-500 hover:bg-red-600"
         } rounded-lg size-8 font-bold`}
         onClick={decrement}
+        disabled={quantity === 1}
       >
         -
       </button>
@@ -36,6 +37,7 @@ export default function NewItem() {
             : "bg-green-500 hover:bg-green-600"
         } rounded-lg size-8 font-bold`}
         onClick={increment}
+        disabled={quantity === 50}
       >
         +
       </button>
