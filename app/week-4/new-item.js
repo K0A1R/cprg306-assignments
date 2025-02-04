@@ -5,7 +5,7 @@ export default function NewItem() {
   const [quantity, setQuantity] = useState(1);
 
   function increment() {
-    if (quantity < 50) {
+    if (quantity < 20) {
       setQuantity(quantity + 1);
     }
   }
@@ -32,12 +32,12 @@ export default function NewItem() {
       </button>
       <button
         className={`${
-          quantity === 50
+          quantity === 20
             ? "bg-gray-300 text-gray-700"
             : "bg-green-500 hover:bg-green-600"
         } rounded-lg size-8 font-bold`}
         onClick={increment}
-        disabled={quantity === 50}
+        disabled={quantity === 20}
       >
         +
       </button>
