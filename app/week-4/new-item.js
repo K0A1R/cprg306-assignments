@@ -20,24 +20,26 @@ export default function NewItem() {
         {quantity}
       </p>
       <button
+        type="button"
         className={`${
           quantity === 1
             ? "bg-gray-300 text-gray-700"
             : "bg-red-500 hover:bg-red-600"
         } rounded-lg size-8 font-bold`}
-        onClick={decrement}
         disabled={quantity === 1}
+        onClick={decrement}
       >
         -
       </button>
       <button
+        type="button"
         className={`${
           quantity === 20
             ? "bg-gray-300 text-gray-700"
             : "bg-green-500 hover:bg-green-600"
         } rounded-lg size-8 font-bold`}
-        onClick={increment}
         disabled={quantity === 20}
+        onClick={increment}
       >
         +
       </button>
