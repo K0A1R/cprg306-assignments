@@ -32,7 +32,7 @@ export default function NewItem() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col gap-4 border-2 bg-slate-700 border-gray-300 p-4 rounded-lg"
+      className="flex flex-col gap-4 bg-slate-700 p-4 shadow-xl rounded-lg"
     >
       {/* Textbox */}
       <input
