@@ -73,7 +73,7 @@ export default function ItemList() {
     category: "household",
   };
   return (
-    <section>
+    <div>
       <Item
         name={item1.name}
         quantity={item1.quantity}
@@ -134,6 +134,6 @@ export default function ItemList() {
         quantity={item12.quantity}
         category={item12.category}
       />
-    </section>
+    </div>
   );
 }
