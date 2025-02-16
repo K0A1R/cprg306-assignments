@@ -6,7 +6,7 @@ export default function ItemList() {
     <div>
       {itemsData.map((item) => (
         <Item
-          key={item.div}
+          key={item.id}
           name={item.name}
           quantity={item.quantity}
           category={item.category}
