@@ -3,7 +3,9 @@ export default function StudentInfo() {
   return (
     <div>
       <p>Amrit Reddy</p>
-      <Link href="https://github.com/K0A1R/">GitHub</Link>
+      <Link href="https://github.com/K0A1R/" target="_blank">
+        GitHub
+      </Link>
     </div>
   );
 }
