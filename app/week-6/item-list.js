@@ -36,12 +36,7 @@ export default function ItemList() {
         </button>
       </div>
       {items.map((item) => (
-        <Item
-          key={item.id}
-          name={item.name}
-          quantity={item.quantity}
-          category={item.category}
-        />
+        <Item key={item.id} {...item} />
       ))}
     </div>
   );
