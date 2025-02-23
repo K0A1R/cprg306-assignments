@@ -8,10 +8,37 @@ export default function ItemList() {
   const [sortBy, setSortBy] = useState("name");
   const items = [...itemsData];
 
+  let sortedItems = [];
+
+  // Sort items based on name or category
   if (sortBy === "name") {
-    items.sort((a, b) => a.name.localeCompare(b.name));
+    sortedItems = items.sort((a, b) => a.name.localeCompare(b.name));
   } else if (sortBy === "category") {
-    items.sort((a, b) => a.category.localeCompare(b.category));
+    sortedItems = items.sort((a, b) => a.category.localeCompare(b.category));
+  }
+
+  // Group items based on category
+  if (sortBy === "groupedCategory") {
+    const groupedItems = items.reduce((groupedCategory, item) => {
+      const category = item.category;
+      if (!groupedCategory[category]) {
+        groupedCategory[category] = [];
+      }
+      groupedCategory[category].push(item);
+      return groupedCategory;
+    }, {});
+    // convert groupedItems object to an array
+    sortedItems = Object.keys(groupedItems).map((category) => ({
+      category,
+      items: groupedItems[category],
+    }));
+    // Sort the array based on category
+    sortedItems.sort((a, b) => a.category.localeCompare(b.category));
+    // Sort items within each category
+    sortedItems.forEach((group) => {
+      group.items.sort((a, b) => a.name.localeCompare(b.name));
+    });
+    console.log(sortedItems);
   }
 
   return (
@@ -34,10 +61,29 @@ export default function ItemList() {
         >
           Category
         </button>
+        <button
+          className={`rounded-md p-1 w-24 ${
+            sortBy === "groupedCategory"
+              ? "bg-green-700 text-white"
+              : "bg-green-400"
+          }`}
+          onClick={() => setSortBy("groupedCategory")}
+        >
+          Grouped Category
+        </button>
       </div>
-      {items.map((item) => (
-        <Item key={item.id} {...item} />
-      ))}
+      {sortBy === "groupedCategory"
+        ? sortedItems.map((group) => (
+            <div key={group.category}>
+              <h2 className="text-lg font-bold mt-4 ml-1 capitalize text-slate-800">
+                {group.category}
+              </h2>
+              {group.items.map((item) => (
+                <Item key={item.id} {...item} />
+              ))}
+            </div>
+          ))
+        : sortedItems.map((item) => <Item key={item.id} {...item} />)}
     </div>
   );
 }
