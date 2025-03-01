@@ -1,20 +1,20 @@
 "use client";
-import itemsData from "./items.json";
 import Item from "./item";
 
 import { useState } from "react";
 
-export default function ItemList() {
+export default function ItemList({ items }) {
   const [sortBy, setSortBy] = useState("name");
-  const items = [...itemsData];
 
   let sortedItems = [];
 
   // Sort items based on name or category
   if (sortBy === "name") {
-    sortedItems = items.sort((a, b) => a.name.localeCompare(b.name));
+    sortedItems = [...items].sort((a, b) => a.name.localeCompare(b.name));
   } else if (sortBy === "category") {
-    sortedItems = items.sort((a, b) => a.category.localeCompare(b.category));
+    sortedItems = [...items].sort((a, b) =>
+      a.category.localeCompare(b.category)
+    );
   }
 
   // Group items based on category
