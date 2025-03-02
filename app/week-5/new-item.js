@@ -81,7 +81,7 @@ export default function NewItem() {
           id="category"
           value={category}
           onChange={(event) => setCategory(event.target.value)}
-          className="rounded-sm pl-1 bg-slate-100 hover:shadow-xl"
+          className="rounded-sm pl-1 bg-slate-100"
         >
           <option value={""} disabled>
             Select Category

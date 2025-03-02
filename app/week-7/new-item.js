@@ -4,7 +4,20 @@ import { useState } from "react";
 export default function NewItem({ onAddItems }) {
   const [quantity, setQuantity] = useState(1);
   const [name, setName] = useState("");
-  const [category, setCategory] = useState("Produce");
+  const [category, setCategory] = useState("produce");
+  const categoryList = [
+    "produce",
+    "dairy",
+    "bakery",
+    "meat",
+    "frozen food",
+    "canned goods",
+    "dry goods",
+    "beverages",
+    "snacks",
+    "household",
+    "other",
+  ];
 
   function increment() {
     if (quantity < 20) {
@@ -24,7 +37,7 @@ export default function NewItem({ onAddItems }) {
     onAddItems(newItem);
     setQuantity(1);
     setName("");
-    setCategory("Produce");
+    setCategory("produce");
   }
 
   return (
@@ -79,22 +92,16 @@ export default function NewItem({ onAddItems }) {
           id="category"
           value={category}
           onChange={(event) => setCategory(event.target.value)}
-          className="rounded-sm pl-1 bg-slate-100 hover:shadow-xl"
+          className="rounded-sm pl-1 bg-slate-100"
         >
           <option value={""} disabled>
             Select Category
           </option>
-          <option value={"Produce"}>Produce</option>
-          <option value={"Dairy"}>Dairy</option>
-          <option value={"Bakery"}>Bakery</option>
-          <option value={"Meat"}>Meat</option>
-          <option value={"Frozen Food"}>Frozen Foods</option>
-          <option value={"Canned Goods"}>Canned Goods</option>
-          <option value={"Dry Goods"}>Dry Goods</option>
-          <option value={"Beverages"}>Beverages</option>
-          <option value={"Snacks"}>Snacks</option>
-          <option value={"Household"}>Household</option>
-          <option value={"Other"}>Other</option>
+          {categoryList.map((category) => (
+            <option key={category} value={category}>
+              {category}
+            </option>
+          ))}
         </select>
       </div>
       <button
