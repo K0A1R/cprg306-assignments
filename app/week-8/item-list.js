@@ -3,7 +3,7 @@ import Item from "./item";
 
 import { useState } from "react";
 
-export default function ItemList({ items }) {
+export default function ItemList({ items, onItemSelect }) {
   const [sortBy, setSortBy] = useState("name");
 
   let sortedItems = [];
@@ -83,11 +83,13 @@ export default function ItemList({ items }) {
                   {group.category}
                 </h2>
                 {group.items.map((item) => (
-                  <Item key={item.id} {...item} />
+                  <Item key={item.id} {...item} onSelect={onItemSelect} />
                 ))}
               </div>
             ))
-          : sortedItems.map((item) => <Item key={item.id} {...item} />)}
+          : sortedItems.map((item) => (
+              <Item key={item.id} {...item} onSelect={onItemSelect} />
+            ))}
       </ul>
     </div>
   );
