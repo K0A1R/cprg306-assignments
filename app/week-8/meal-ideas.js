@@ -39,7 +39,9 @@ export default function MealIdeas({ ingredient }) {
 
   return (
     <div className="ml-20 p-4 bg-slate-300 h-fit rounded-md">
-      <h1 className="font-bold text-center text-xl mb-2">Meal Ideas</h1>
+      <h1 className="font-bold text-center text-xl mb-2 capitalize">
+        Meal Ideas for {ingredient}
+      </h1>
       {loading ? (
         <p className="italic">Loading meal ideas...</p>
       ) : !meals || meals.length === 0 ? (
