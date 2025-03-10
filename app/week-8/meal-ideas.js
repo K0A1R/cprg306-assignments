@@ -50,10 +50,12 @@ export default function MealIdeas({ ingredient }) {
 
   async function loadMealIngredients(mealId) {
     const data = await fetchMealIngredients(mealId);
-    setIngredients((prevIngredients) => ({
-      ...prevIngredients,
-      [mealId]: data,
-    }));
+    if (data) {
+      setIngredients((prevIngredients) => ({
+        ...prevIngredients,
+        [mealId]: data,
+      }));
+    }
   }
 
   useEffect(() => {

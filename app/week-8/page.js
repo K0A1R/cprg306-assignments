@@ -28,11 +28,7 @@ export default function Page() {
       <NewItem onAddItems={handleAddItems} />
       <div className="flex">
         <ItemList items={items} onItemSelect={handleSelectItem} />
-        {selectedItem !== "" ? (
-          <MealIdeas ingredient={selectedItem} />
-        ) : (
-          <MealIdeas />
-        )}
+        <MealIdeas ingredient={selectedItem} />
       </div>
     </main>
   );
