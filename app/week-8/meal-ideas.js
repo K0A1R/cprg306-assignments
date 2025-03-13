@@ -99,7 +99,11 @@ export default function MealIdeas({ ingredient }) {
             <li
               key={meal.idMeal}
               className="p-2 bg-slate-200 rounded-md shadow-sm hover:shadow-md cursor-pointer transition-shadow"
-              onClick={() => setMealId(meal.idMeal)}
+              onClick={
+                mealId === meal.idMeal
+                  ? () => setMealId(null)
+                  : () => setMealId(meal.idMeal)
+              }
             >
               <div className="font-bold">{meal.strMeal}</div>
               {mealId === meal.idMeal && ingredients[meal.idMeal] && (
