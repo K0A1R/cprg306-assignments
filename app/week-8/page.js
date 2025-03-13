@@ -9,7 +9,6 @@ import { useState } from "react";
 export default function Page() {
   const [items, setItems] = useState([...itemsData]);
   const [selectedItem, setSelectedItem] = useState("");
-
   const handleAddItems = (newItem) => {
     setItems([...items, newItem]);
   };
@@ -22,13 +21,18 @@ export default function Page() {
     const strippedValue = selectedValue.split(",")[0].trim();
     setSelectedItem(strippedValue);
   };
+
   return (
     <main>
       <h1 className="text-xl text-slate-800 font-bold p-2">Shopping List</h1>
       <NewItem onAddItems={handleAddItems} />
       <div className="flex">
         <ItemList items={items} onItemSelect={handleSelectItem} />
-        <MealIdeas ingredient={selectedItem} />
+        {selectedItem !== "" ? (
+          <MealIdeas ingredient={selectedItem} />
+        ) : (
+          <MealIdeas />
+        )}
       </div>
     </main>
   );
