@@ -40,7 +40,7 @@ export default function Page() {
           Sign-In to view your shopping list!
         </h1>
         <button
-          className="hover:underline hover:text-blue-600 font-semibold"
+          className="hover:underline hover:text-green-500 font-semibold"
           onClick={handleSignIn}
         >
           Sign-In
