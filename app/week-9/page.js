@@ -1,4 +1,4 @@
-// Landing Page
+//Landing Page
 "use client";
 import { useUserAuth } from "./_utils/auth-context";
 import Link from "next/link";
@@ -26,7 +26,7 @@ export default function Page() {
           </h2>
           <div className="flex gap-2">
             <button
-              className="hover:underline hover:text-blue-600 font-semibold"
+              className="hover:underline hover:text-green-500 font-semibold"
               onClick={handleSignOut}
             >
               Sign Out
@@ -34,7 +34,7 @@ export default function Page() {
             <p>|</p>
             <Link
               href="../week-9/shopping-list"
-              className="hover:underline hover:text-blue-600 font-semibold"
+              className="hover:underline hover:text-green-500 font-semibold"
             >
               Go To App
             </Link>

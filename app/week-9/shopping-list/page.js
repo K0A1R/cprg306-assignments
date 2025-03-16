@@ -6,7 +6,6 @@ import MealIdeas from "./meal-ideas";
 
 import { useState } from "react";
 import { useUserAuth } from "../_utils/auth-context";
-import Link from "next/link";
 
 export default function Page() {
   const [items, setItems] = useState([...itemsData]);
@@ -55,13 +54,14 @@ export default function Page() {
       <div className="flex justify-between items-center p-2">
         <h1 className="text-xl text-slate-800 font-bold">Shopping List</h1>
         {user && (
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1">
             <p className="font-semibold">
-              {user.displayName} ({user.email})
+              <span>{user.displayName}</span>
+              <span className="text-slate-700">({user.email})</span>
             </p>
             <p>|</p>
             <button
-              className="hover:underline hover:text-blue-600 font-semibold"
+              className="hover:underline hover:text-green-500 font-semibold"
               onClick={handleSignOut}
             >
               Sign Out
