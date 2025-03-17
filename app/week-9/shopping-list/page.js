@@ -26,11 +26,19 @@ export default function Page() {
   };
 
   const handleSignIn = async () => {
-    await gitHubSignIn();
+    try {
+      await gitHubSignIn();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleSignOut = async () => {
-    await firebaseSignOut();
+    try {
+      await firebaseSignOut();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   if (!user) {
@@ -51,10 +59,15 @@ export default function Page() {
 
   return (
     <main>
-      <div className="flex justify-between items-center p-2">
+      <div className="flex justify-between p-2">
         <h1 className="text-xl text-slate-800 font-bold">Shopping List</h1>
         {user && (
           <div className="flex items-center gap-1">
+            <img
+              src={user.photoURL}
+              alt={user.displayName}
+              className="w-6 h-6 rounded-full"
+            />
             <p className="font-semibold">
               <span>{user.displayName}</span>
               <span className="text-slate-700">({user.email})</span>

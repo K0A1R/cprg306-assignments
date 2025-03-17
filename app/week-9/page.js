@@ -42,7 +42,7 @@ export default function Page() {
         </div>
       ) : (
         <button
-          className="hover:underline hover:text-blue-600 font-semibold"
+          className="hover:underline hover:text-green-500 font-semibold"
           onClick={handleSignIn}
         >
           Sign In with GitHub
