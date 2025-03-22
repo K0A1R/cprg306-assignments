@@ -1,19 +1,46 @@
 "use client";
-import itemsData from "./items.json";
 import ItemList from "./item-list";
 import NewItem from "./new-item";
 import MealIdeas from "./meal-ideas";
 
-import { useState } from "react";
+import { useState, useEffect, use } from "react";
 import { useUserAuth } from "../_utils/auth-context";
+import { getItems, addItem } from "../_services/shopping-list-service";
 
 export default function Page() {
-  const [items, setItems] = useState([...itemsData]);
+  const [items, setItems] = useState([]);
   const [selectedItem, setSelectedItem] = useState("");
+  const [loading, setLoading] = useState(false);
   const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();
 
-  const handleAddItems = (newItem) => {
-    setItems([...items, newItem]);
+  useEffect(() => {
+    if (user) {
+      const loadItems = async () => {
+        setLoading(true);
+        try {
+          const itemsData = await getItems(user.uid);
+          setItems(itemsData);
+        } catch (error) {
+          console.error("Loading items failed:", error);
+        } finally {
+          setLoading(false);
+        }
+      };
+      loadItems();
+    } else {
+      setItems([]);
+      setSelectedItem("");
+    }
+  }, [user]);
+
+  const handleAddItems = async (newItem) => {
+    try {
+      const itemId = await addItem(user.uid, newItem);
+      newItem = { id: itemId, ...newItem };
+      setItems((prevItems) => [...prevItems, newItem]);
+    } catch (error) {
+      console.error("Adding item failed:", error);
+    }
   };
 
   const handleSelectItem = (name) => {
@@ -29,7 +56,7 @@ export default function Page() {
     try {
       await gitHubSignIn();
     } catch (error) {
-      console.log(error);
+      console.error("Sign in failed:", error);
     }
   };
 
@@ -37,7 +64,7 @@ export default function Page() {
     try {
       await firebaseSignOut();
     } catch (error) {
-      console.log(error);
+      console.error("Sign out failed:", error);
     }
   };
 
@@ -84,7 +111,11 @@ export default function Page() {
       </div>
       <NewItem onAddItems={handleAddItems} />
       <div className="flex">
-        <ItemList items={items} onItemSelect={handleSelectItem} />
+        {loading ? (
+          <p>...Loading Items</p>
+        ) : (
+          <ItemList items={items} onItemSelect={handleSelectItem} />
+        )}
         <MealIdeas ingredient={selectedItem} />
       </div>
     </main>
