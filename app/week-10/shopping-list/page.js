@@ -3,9 +3,13 @@ import ItemList from "./item-list";
 import NewItem from "./new-item";
 import MealIdeas from "./meal-ideas";
 
-import { useState, useEffect, use } from "react";
+import { useState, useEffect } from "react";
 import { useUserAuth } from "../_utils/auth-context";
-import { getItems, addItem } from "../_services/shopping-list-service";
+import {
+  getItems,
+  addItem,
+  deleteItem,
+} from "../_services/shopping-list-service";
 
 export default function Page() {
   const [items, setItems] = useState([]);
@@ -40,6 +44,15 @@ export default function Page() {
       setItems((prevItems) => [...prevItems, newItem]);
     } catch (error) {
       console.error("Adding item failed:", error);
+    }
+  };
+
+  const handleDeleteItem = async (itemId) => {
+    try {
+      await deleteItem(user.uid, itemId);
+      setItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
+    } catch (error) {
+      console.error("Deleting item failed:", error);
     }
   };
 
@@ -114,7 +127,11 @@ export default function Page() {
         {loading ? (
           <p>...Loading Items</p>
         ) : (
-          <ItemList items={items} onItemSelect={handleSelectItem} />
+          <ItemList
+            items={items}
+            onItemSelect={handleSelectItem}
+            onItemDelete={handleDeleteItem}
+          />
         )}
         <MealIdeas ingredient={selectedItem} />
       </div>

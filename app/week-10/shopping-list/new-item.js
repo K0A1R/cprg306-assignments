@@ -32,9 +32,7 @@ export default function NewItem({ onAddItems }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    const newId = Math.random().toString(36).slice(2, 17);
-    console.log(newId);
-    const newItem = { id: newId, name, quantity, category };
+    const newItem = { name, quantity, category };
     onAddItems(newItem);
     setQuantity(1);
     setName("");
