@@ -7,14 +7,15 @@ export default function Item({
   onDelete,
 }) {
   return (
-    <li className="bg-slate-300 m-3 max-w-md p-2 rounded-md shadow-sm hover:bg-slate-400 hover:shadow-md cursor-pointer transition-shadow">
+    <li
+      onClick={() => onSelect(name)}
+      className="bg-slate-300 m-2 max-w-md p-2 rounded-md shadow-sm hover:bg-slate-400 hover:shadow-md cursor-pointer transition-shadow"
+    >
       <div className="flex justify-between items-center">
-        <div onClick={() => onSelect(name)}>
-          <h1 className="font-bold capitalize">{name}</h1>
-          <p>
-            Buy {quantity} in {category}
-          </p>
-        </div>
+        <h1 className="font-bold capitalize">{name}</h1>
+        <p>
+          Buy {quantity} in {category}
+        </p>
         <button
           onClick={(e) => {
             e.stopPropagation();
